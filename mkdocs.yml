@@ -1,0 +1,65 @@
+site_name: Canda's Second Brain
+site_description: Base de estudos em português sobre fundamentos de TI.
+site_url: https://eduardocanda.github.io/second-brain/
+repo_url: https://github.com/eduardocanda/second-brain
+repo_name: second-brain
+edit_uri: edit/main/docs/
+
+theme:
+  favicon: assets/favicon.png
+  font:
+    text: Work Sans
+  name: material
+  features:
+    - content.action.edit
+  palette:
+  - media: '(prefers-color-scheme: light)'
+    primary: black
+    scheme: default
+    accent: indigo
+    toggle:
+      icon: material/weather-night
+      name: Switch to dark mode
+  - media: '(prefers-color-scheme: dark)'
+    primary: black
+    scheme: slate
+    accent: indigo
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to light mode
+  language: pt-BR
+  color_mode: dark
+  user_color_mode_toggle: true
+
+plugins:
+  - search
+  - awesome-pages
+  - redirects
+  - gh-admonitions
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - javascripts/mermaid-init.js
+
+# Usa o próprio repositório como fonte do site.
+docs_dir: docs
+
+# Evita publicar pastas/arquivos internos no site.
+exclude_docs: |
+  .git/
+  .github/
+  .obsidian/
+  site/
+  venv/
+  .venv/
+  **.txt
